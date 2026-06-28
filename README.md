@@ -6,97 +6,95 @@
     <title>Jaidev M. | Equity Research Portfolio</title>
     <style>
         :root {
-            --navy-dark: #0f172a;
-            --navy-mid: #1e293b;
-            --accent-blue: #2563eb;
-            --bg-light: #f8fafc;
-            --border-color: #cbd5e1;
-            --text-dark: #0f172a;
-            --text-muted: #475569;
-            --max-content-width: 900px;
+            --slate-primary: #0f172a;
+            --slate-muted: #475569;
+            --corporate-blue: #1d4ed8;
+            --ledger-bg: #f8fafc;
+            --grid-border: #cbd5e1;
+            --max-width: 900px;
         }
         
         * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
-        body { font-family: "Times New Roman", Times, Georgia, serif; color: var(--text-dark); background: #ffffff; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+        body { font-family: "Times New Roman", Times, Georgia, serif; color: var(--slate-primary); background: #ffffff; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
 
-        /* Fixed Corporate Header Nav - Realigned to match content borders exactly */
-        nav { position: fixed; top: 0; left: 0; width: 100%; background: rgba(255, 255, 255, 0.98); border-bottom: 2px solid var(--navy-dark); z-index: 1000; display: flex; justify-content: center; padding: 0 20px; }
-        .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: var(--max-content-width); width: 100%; height: 65px; }
-        .nav-brand { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 700; font-size: 0.9rem; letter-spacing: 0.05em; color: var(--navy-dark); text-transform: uppercase; }
-        .nav-links { display: flex; gap: 24px; align-items: center; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-        .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; transition: color 0.2s; }
-        .nav-links a:hover, .nav-links a.active { color: var(--accent-blue); }
-        .nav-links .cta-contact { border: 1px solid var(--navy-dark); padding: 6px 14px; font-size: 0.75rem; color: var(--navy-dark); transition: all 0.2s; }
-        .nav-links .cta-contact:hover { background: var(--navy-dark); color: #ffffff; }
+        /* Pinned Corporate Navigation Matrix */
+        nav { position: fixed; top: 0; left: 0; width: 100%; background: #ffffff; border-bottom: 2px solid var(--slate-primary); z-index: 1000; display: flex; justify-content: center; padding: 0 20px; }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: var(--max-width); width: 100%; height: 65px; }
+        .nav-brand { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.08em; color: var(--slate-primary); text-transform: uppercase; }
+        .nav-links { display: flex; gap: 28px; align-items: center; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        .nav-links a { color: var(--slate-muted); text-decoration: none; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; position: relative; padding-bottom: 4px; transition: color 0.2s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--corporate-blue); }
+        .nav-links .cta-contact { border: 1px solid var(--slate-primary); padding: 6px 14px; font-size: 0.7rem; color: var(--slate-primary); transition: all 0.2s; letter-spacing: 0.05em; }
+        .nav-links .cta-contact:hover { background: var(--slate-primary); color: #ffffff; }
 
-        /* Full Height Layout Containers */
-        .page-panel { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 120px 20px 80px 20px; }
-        .page-panel:nth-of-type(even) { background: var(--bg-light); }
-        .panel-content { max-width: var(--max-content-width); width: 100%; }
+        /* Structural Page Panels */
+        .page-panel { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 130px 20px 90px 20px; }
+        .page-panel:nth-of-type(even) { background: var(--ledger-bg); }
+        .panel-content { max-width: var(--max-width); width: 100%; }
 
-        /* Realigned Institutional Headers */
-        h2 { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: var(--navy-dark); font-size: 1.3rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; border-bottom: 2px solid var(--navy-dark); padding-bottom: 8px; margin-bottom: 32px; display: flex; justify-content: space-between; align-items: flex-end; }
-        h2 .section-meta { font-size: 0.75rem; color: var(--text-muted); font-weight: 400; letter-spacing: 0; text-transform: none; }
+        /* Institutional Ledger Header Layout */
+        h2 { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: var(--slate-primary); font-size: 1.25rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; border-bottom: 2px solid var(--slate-primary); padding-bottom: 8px; margin-bottom: 36px; display: flex; justify-content: space-between; align-items: flex-end; }
+        h2 .section-meta { font-size: 0.7rem; color: var(--slate-muted); font-weight: 500; letter-spacing: 0.02em; text-transform: uppercase; }
         
-        p { font-size: 1.1rem; line-height: 1.6; text-align: justify; color: #1e293b; margin-bottom: 16px; }
+        p { font-size: 1.15rem; line-height: 1.65; text-align: justify; color: #1e293b; margin-bottom: 16px; }
 
-        /* Hero Layout - Realigned padding and boundaries */
-        .hero-layout { border: 1px solid var(--border-color); padding: 48px; background: #ffffff; width: 100%; box-shadow: 0 4px 12px rgba(0,0,0,0.01); }
-        .hero-layout h1 { font-size: 3.2rem; font-weight: 400; color: var(--navy-dark); letter-spacing: -0.02em; margin-bottom: 4px; }
-        .hero-subtitle { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 1.1rem; color: var(--accent-blue); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 28px; }
+        /* Executive Brief Summary Box */
+        .hero-layout { border: 1px solid var(--grid-border); padding: 52px; background: #ffffff; width: 100%; box-shadow: 0 1px 3px rgba(0,0,0,0.02); }
+        .hero-layout h1 { font-size: 3.4rem; font-weight: 400; color: var(--slate-primary); letter-spacing: -0.02em; margin-bottom: 4px; }
+        .hero-subtitle { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 1.05rem; color: var(--corporate-blue); font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 32px; }
         
-        /* Realigned Metadata Table */
-        .meta-data-table { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; border-top: 1px dashed var(--border-color); padding-top: 24px; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 0.85rem; }
-        .meta-column { display: flex; flex-direction: column; justify-content: flex-start; }
-        .meta-label { color: var(--text-muted); text-transform: uppercase; font-weight: 600; font-size: 0.75rem; margin-bottom: 4px; }
-        .meta-val { color: var(--text-dark); font-weight: 500; }
-        .meta-val a { color: var(--accent-blue); text-decoration: none; border-bottom: 1px solid transparent; }
-        .meta-val a:hover { border-bottom-color: var(--accent-blue); }
+        /* Rigid Data Tables alignment */
+        .meta-data-table { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; border-top: 1px solid var(--grid-border); padding-top: 28px; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 0.85rem; }
+        .meta-column { display: flex; flex-direction: column; }
+        .meta-label { color: var(--slate-muted); text-transform: uppercase; font-weight: 600; font-size: 0.7rem; letter-spacing: 0.05em; margin-bottom: 6px; }
+        .meta-val { color: var(--slate-primary); font-weight: 500; line-height: 1.4; }
+        .meta-val a { color: var(--corporate-blue); text-decoration: none; border-bottom: 1px solid transparent; }
+        .meta-val a:hover { border-bottom-color: var(--corporate-blue); }
 
-        /* Grid Framework for Competencies Matrix */
-        .matrix-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; width: 100%; }
-        .matrix-box { background: #ffffff; border: 1px solid var(--border-color); padding: 24px; display: flex; flex-direction: column; }
-        .matrix-box h3 { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 0.9rem; font-weight: 700; text-transform: uppercase; color: var(--navy-dark); letter-spacing: 0.05em; border-bottom: 1px solid var(--navy-dark); padding-bottom: 6px; margin-bottom: 16px; }
+        /* Capabilities Quadrant Ledger */
+        .matrix-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; width: 100%; }
+        .matrix-box { background: #ffffff; border: 1px solid var(--grid-border); padding: 28px; display: flex; flex-direction: column; }
+        .matrix-box h3 { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: var(--slate-primary); letter-spacing: 0.08em; border-bottom: 1px solid var(--slate-primary); padding-bottom: 6px; margin-bottom: 18px; }
         .matrix-box ul { list-style: none; }
-        .matrix-box li { font-size: 1.05rem; margin-bottom: 8px; position: relative; padding-left: 18px; text-align: justify; }
-        .matrix-box li::before { content: "▪"; color: var(--accent-blue); position: absolute; left: 0; font-size: 0.8rem; top: 2px; }
+        .matrix-box li { font-size: 1.1rem; margin-bottom: 10px; position: relative; padding-left: 20px; text-align: justify; color: #1e293b; }
+        .matrix-box li::before { content: "▪"; color: var(--corporate-blue); position: absolute; left: 0; font-size: 0.75rem; top: 1px; }
 
-        /* Realigned Experience Layout */
-        .report-block { margin-bottom: 40px; width: 100%; }
+        /* Dossier Experience Blocks */
+        .report-block { margin-bottom: 44px; width: 100%; }
         .report-block:last-child { margin-bottom: 0; }
-        .report-header { display: flex; justify-content: space-between; align-items: baseline; font-weight: bold; font-size: 1.2rem; color: var(--navy-dark); border-bottom: 1px solid var(--border-color); padding-bottom: 4px; }
-        .report-sub { display: flex; justify-content: space-between; align-items: baseline; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 0.9rem; font-weight: 600; color: var(--accent-blue); margin-top: 6px; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.02em; }
-        .report-date { color: var(--text-muted); font-weight: 500; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 0.85rem; letter-spacing: 0; text-transform: none; }
+        .report-header { display: flex; justify-content: space-between; align-items: baseline; font-weight: bold; font-size: 1.25rem; color: var(--slate-primary); border-bottom: 1px solid var(--grid-border); padding-bottom: 6px; }
+        .report-sub { display: flex; justify-content: space-between; align-items: baseline; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 0.85rem; font-weight: 600; color: var(--corporate-blue); margin-top: 8px; margin-bottom: 18px; text-transform: uppercase; letter-spacing: 0.05em; }
+        .report-date { color: var(--slate-muted); font-weight: 500; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 0.8rem; letter-spacing: 0; text-transform: none; }
         .report-block ul { list-style: none; }
-        .report-block li { font-size: 1.05rem; margin-bottom: 10px; position: relative; padding-left: 20px; text-align: justify; color: #1e293b; }
-        .report-block li::before { content: "—"; color: var(--text-muted); position: absolute; left: 0; }
+        .report-block li { font-size: 1.1rem; margin-bottom: 12px; position: relative; padding-left: 22px; text-align: justify; color: #1e293b; line-height: 1.6; }
+        .report-block li::before { content: "—"; color: var(--slate-muted); position: absolute; left: 0; }
 
-        /* Publication Layout Blocks */
-        .deck-row { display: flex; flex-direction: column; gap: 24px; width: 100%; }
-        .pub-panel { background: #ffffff; border: 1px solid var(--border-color); padding: 24px; width: 100%; }
-        .pub-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; border-bottom: 1px dashed var(--border-color); padding-bottom: 8px; }
-        .pub-title { font-weight: bold; font-size: 1.2rem; color: var(--navy-dark); }
-        .pub-link { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em; border: 1px solid var(--accent-blue); color: var(--accent-blue); padding: 5px 12px; text-decoration: none; text-transform: uppercase; transition: all 0.2s; }
-        .pub-link:hover { background: var(--accent-blue); color: #ffffff; }
+        /* Document / Publication Tables */
+        .deck-row { display: flex; flex-direction: column; gap: 28px; width: 100%; }
+        .pub-panel { background: #ffffff; border: 1px solid var(--grid-border); padding: 28px; width: 100%; }
+        .pub-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; border-bottom: 1px dashed var(--grid-border); padding-bottom: 10px; }
+        .pub-title { font-weight: bold; font-size: 1.25rem; color: var(--slate-primary); }
+        .pub-link { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; border: 1px solid var(--corporate-blue); color: var(--corporate-blue); padding: 5px 14px; text-decoration: none; text-transform: uppercase; transition: all 0.15s ease-in-out; }
+        .pub-link:hover { background: var(--corporate-blue); color: #ffffff; }
 
-        /* Academic Block Alignment */
-        .edu-matrix { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; width: 100%; }
-        .edu-node { background: #ffffff; border: 1px solid var(--border-color); border-top: 3px solid var(--navy-dark); padding: 24px; display: flex; flex-direction: column; justify-content: space-between; }
-        .edu-node h3 { font-size: 1.15rem; color: var(--navy-dark); font-weight: bold; line-height: 1.2; }
-        .edu-inst { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 0.85rem; color: var(--accent-blue); text-transform: uppercase; font-weight: 600; margin-top: 4px; }
-        .edu-score-row { margin-top: 24px; display: flex; justify-content: space-between; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 0.85rem; border-top: 1px solid #f1f5f9; padding-top: 12px; color: var(--text-muted); }
+        /* Academic Grid Matrix */
+        .edu-matrix { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; width: 100%; }
+        .edu-node { background: #ffffff; border: 1px solid var(--grid-border); border-top: 4px solid var(--slate-primary); padding: 24px; display: flex; flex-direction: column; justify-content: space-between; }
+        .edu-node h3 { font-size: 1.2rem; color: var(--slate-primary); font-weight: bold; line-height: 1.25; }
+        .edu-inst { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 0.8rem; color: var(--corporate-blue); text-transform: uppercase; font-weight: 600; margin-top: 6px; letter-spacing: 0.02em; }
+        .edu-score-row { margin-top: 28px; display: flex; justify-content: space-between; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 0.8rem; border-top: 1px solid #f1f5f9; padding-top: 14px; color: var(--slate-muted); font-weight: 500; }
 
         @media (max-width: 768px) {
             .nav-brand { display: none; }
             .nav-container { justify-content: center; }
-            .nav-links { gap: 14px; }
-            .hero-layout { padding: 24px; }
-            .hero-layout h1 { font-size: 2.2rem; }
-            .meta-data-table { grid-template-columns: 1fr; gap: 16px; }
-            .matrix-grid, .edu-matrix { grid-template-columns: 1fr; gap: 24px; }
-            .report-header, .report-sub, .pub-top { flex-direction: column; align-items: flex-start; gap: 4px; }
+            .nav-links { gap: 16px; }
+            .hero-layout { padding: 28px; }
+            .hero-layout h1 { font-size: 2.4rem; }
+            .meta-data-table { grid-template-columns: 1fr; gap: 20px; }
+            .matrix-grid, .edu-matrix { grid-template-columns: 1fr; gap: 28px; }
+            .report-header, .report-sub, .pub-top { flex-direction: column; align-items: flex-start; gap: 6px; }
             .report-date { margin-top: 2px; }
-            .pub-link { margin-top: 4px; display: inline-block; }
+            .pub-link { margin-top: 6px; display: inline-block; }
         }
     </style>
 </head>
@@ -104,7 +102,7 @@
 
     <nav>
         <div class="nav-container">
-            <div class="nav-brand">Institutional Portfolio Matrix</div>
+            <div class="nav-brand">Institutional Portfolio Index</div>
             <div class="nav-links">
                 <a href="#about">Executive Summary</a>
                 <a href="#skills">Competencies</a>
@@ -134,11 +132,11 @@
                     </div>
                     <div class="meta-column">
                         <div class="meta-label">Secure Contact</div>
-                        <div class="meta-val">+91 93608 28664[cite: 1] | cfajaidev@gmail.com[cite: 1]</div>
+                        <div class="meta-val">+91 93608 28664[cite: 1]<br>cfajaidev@gmail.com[cite: 1]</div>
                     </div>
                     <div class="meta-column">
                         <div class="meta-label">External Verification</div>
-                        <div class="meta-val"><a href="https://linkedin.com/in/YOUR-LINKEDIN-URL" target="_blank">LinkedIn Dossier ↗</a></div>
+                        <div class="meta-val"><a href="https://linkedin.com/in/YOUR-LINKEDIN-URL" target="_blank">LinkedIn Profile Dossier ↗</a></div>
                     </div>
                 </div>
             </div>
@@ -150,14 +148,14 @@
         <div class="panel-content">
             <h2>Core Capabilities & Frameworks <span class="section-meta">Technical Breakdown</span></h2>
             
-            <div class="matrix-grid" style="margin-bottom: 24px;">
-                <div class="matrix-box" style="border-top: 2px solid var(--accent-blue);">
+            <div class="matrix-grid" style="margin-bottom: 28px;">
+                <div class="matrix-box" style="border-top: 3px solid var(--corporate-blue);">
                     <h3>NISM Series XV — Research Analyst</h3>
-                    <p style="font-size:0.95rem; line-height:1.4; color:var(--text-muted); margin-bottom:0; font-family:-apple-system, BlinkMacSystemFont, sans-serif; text-align: left;">National Institute of Securities Markets | Issued April 2026[cite: 1]. SEBI-mandated operational validation for publishing public and private equity research frameworks within Indian capital markets[cite: 1].</p>
+                    <p style="font-size:0.95rem; line-height:1.45; color:var(--slate-muted); margin-bottom:0; font-family:-apple-system, BlinkMacSystemFont, sans-serif; text-align: left;">National Institute of Securities Markets | Issued April 2026[cite: 1]. SEBI-mandated operational validation for publishing public and private equity research frameworks within Indian capital markets[cite: 1].</p>
                 </div>
-                <div class="matrix-box" style="border-top: 2px solid var(--accent-blue);">
+                <div class="matrix-box" style="border-top: 3px solid var(--corporate-blue);">
                     <h3>Financial Modelling & Valuation</h3>
-                    <p style="font-size:0.95rem; line-height:1.4; color:var(--text-muted); margin-bottom:0; font-family:-apple-system, BlinkMacSystemFont, sans-serif; text-align: left;">NSE - Grant Thornton | Matrix Framework 2025[cite: 1]. Specialized institutional engineering credential focusing on dynamic valuation modeling structures[cite: 1].</p>
+                    <p style="font-size:0.95rem; line-height:1.45; color:var(--slate-muted); margin-bottom:0; font-family:-apple-system, BlinkMacSystemFont, sans-serif; text-align: left;">NSE - Grant Thornton | Matrix Framework 2025[cite: 1]. Specialized institutional engineering credential focusing on dynamic valuation modeling structures[cite: 1].</p>
                 </div>
             </div>
 
@@ -215,7 +213,7 @@
                 <div class="report-sub">
                     <span>Equity Research & Investment Portfolio Management[cite: 1]</span>
                 </div>
-                <p style="font-style: italic; color: var(--text-muted); font-size: 0.95rem; margin-bottom: 12px; font-family: -apple-system, sans-serif;">Concurrent execution alongside professional business management mandates[cite: 1].</p>
+                <p style="font-style: italic; color: var(--slate-muted); font-size: 0.95rem; margin-bottom: 14px; font-family: -apple-system, sans-serif;">Concurrent execution alongside professional business management mandates[cite: 1].</p>
                 <ul>
                     <li>Co-managed a 10-50L multi-asset equity portfolio, generating 5-10% alpha above the Nifty 50 CAGR through bottom-up stock selection, DCF-driven valuation, and active sector rotation across FMCG, NBFC, IT services, and pharma[cite: 1].</li>
                     <li>Built three-statement financial models and authored initiation and earnings notes for 4+ listed equities (Nestle, Muthoot Finance, Coforge, and Hindustan Unilever) producing buy/hold/sell recommendations with 12-month price targets backed by DCF and EV/EBITDA analysis[cite: 1].</li>
@@ -305,7 +303,7 @@
                     </div>
                 </div>
 
-                <div class="edu-node" style="border-top-color: var(--accent-blue);">
+                <div class="edu-node" style="border-top-color: var(--corporate-blue);">
                     <div>
                         <h3>CFA® Program Candidate</h3>
                         <div class="edu-inst">CFA Institute[cite: 1]</div>
