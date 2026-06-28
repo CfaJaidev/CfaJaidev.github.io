@@ -13,71 +13,78 @@
             --border-color: #cbd5e1;
             --text-dark: #0f172a;
             --text-muted: #475569;
+            --max-content-width: 900px;
         }
         
         * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
         body { font-family: "Times New Roman", Times, Georgia, serif; color: var(--text-dark); background: #ffffff; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
 
-        /* Fixed Corporate Header Nav */
-        nav { position: fixed; top: 0; left: 0; width: 100%; background: #ffffff; border-bottom: 2px solid var(--navy-dark); z-index: 1000; display: flex; justify-content: center; padding: 0 20px; }
-        .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1000px; width: 100%; height: 60px; }
-        .nav-brand { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 700; font-size: 0.95rem; letter-spacing: 0.05em; color: var(--navy-dark); text-transform: uppercase; }
+        /* Fixed Corporate Header Nav - Realigned to match content borders exactly */
+        nav { position: fixed; top: 0; left: 0; width: 100%; background: rgba(255, 255, 255, 0.98); border-bottom: 2px solid var(--navy-dark); z-index: 1000; display: flex; justify-content: center; padding: 0 20px; }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: var(--max-content-width); width: 100%; height: 65px; }
+        .nav-brand { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 700; font-size: 0.9rem; letter-spacing: 0.05em; color: var(--navy-dark); text-transform: uppercase; }
         .nav-links { display: flex; gap: 24px; align-items: center; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
         .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; transition: color 0.2s; }
         .nav-links a:hover, .nav-links a.active { color: var(--accent-blue); }
         .nav-links .cta-contact { border: 1px solid var(--navy-dark); padding: 6px 14px; font-size: 0.75rem; color: var(--navy-dark); transition: all 0.2s; }
         .nav-links .cta-contact:hover { background: var(--navy-dark); color: #ffffff; }
 
-        /* Full Height Layouts mimicking research presentation slides */
-        .page-panel { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 100px 20px 60px 20px; }
+        /* Full Height Layout Containers */
+        .page-panel { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 120px 20px 80px 20px; }
         .page-panel:nth-of-type(even) { background: var(--bg-light); }
-        .panel-content { max-width: 950px; width: 100%; }
+        .panel-content { max-width: var(--max-content-width); width: 100%; }
 
-        /* Typography matching Institutional Research Papers */
-        h2 { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: var(--navy-dark); font-size: 1.4rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; border-bottom: 2px solid var(--navy-dark); padding-bottom: 6px; margin-bottom: 28px; display: flex; justify-content: space-between; align-items: flex-end; }
+        /* Realigned Institutional Headers */
+        h2 { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: var(--navy-dark); font-size: 1.3rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; border-bottom: 2px solid var(--navy-dark); padding-bottom: 8px; margin-bottom: 32px; display: flex; justify-content: space-between; align-items: flex-end; }
         h2 .section-meta { font-size: 0.75rem; color: var(--text-muted); font-weight: 400; letter-spacing: 0; text-transform: none; }
         
         p { font-size: 1.1rem; line-height: 1.6; text-align: justify; color: #1e293b; margin-bottom: 16px; }
 
-        /* Hero / Cover Page Styling */
-        .hero-layout { border: 1px solid var(--border-color); padding: 48px; background: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.01); }
+        /* Hero Layout - Realigned padding and boundaries */
+        .hero-layout { border: 1px solid var(--border-color); padding: 48px; background: #ffffff; width: 100%; box-shadow: 0 4px 12px rgba(0,0,0,0.01); }
         .hero-layout h1 { font-size: 3.2rem; font-weight: 400; color: var(--navy-dark); letter-spacing: -0.02em; margin-bottom: 4px; }
-        .hero-subtitle { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 1.1rem; color: var(--accent-blue); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 24px; }
-        .meta-data-table { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; border-top: 1px dashed var(--border-color); padding-top: 20px; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 0.85rem; }
-        .meta-label { color: var(--text-muted); text-transform: uppercase; font-weight: 600; font-size: 0.75rem; margin-bottom: 2px; }
-        .meta-val a { color: var(--text-dark); text-decoration: none; border-bottom: 1px solid var(--border-color); }
+        .hero-subtitle { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 1.1rem; color: var(--accent-blue); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 28px; }
+        
+        /* Realigned Metadata Table */
+        .meta-data-table { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; border-top: 1px dashed var(--border-color); padding-top: 24px; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 0.85rem; }
+        .meta-column { display: flex; flex-direction: column; justify-content: flex-start; }
+        .meta-label { color: var(--text-muted); text-transform: uppercase; font-weight: 600; font-size: 0.75rem; margin-bottom: 4px; }
+        .meta-val { color: var(--text-dark); font-weight: 500; }
+        .meta-val a { color: var(--accent-blue); text-decoration: none; border-bottom: 1px solid transparent; }
+        .meta-val a:hover { border-bottom-color: var(--accent-blue); }
 
         /* Grid Framework for Competencies Matrix */
-        .matrix-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-        .matrix-box { background: #ffffff; border: 1px solid var(--border-color); padding: 20px; }
-        .matrix-box h3 { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 0.9rem; font-weight: 700; text-transform: uppercase; color: var(--navy-dark); letter-spacing: 0.05em; border-bottom: 1px solid var(--navy-dark); padding-bottom: 4px; margin-bottom: 12px; }
+        .matrix-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; width: 100%; }
+        .matrix-box { background: #ffffff; border: 1px solid var(--border-color); padding: 24px; display: flex; flex-direction: column; }
+        .matrix-box h3 { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 0.9rem; font-weight: 700; text-transform: uppercase; color: var(--navy-dark); letter-spacing: 0.05em; border-bottom: 1px solid var(--navy-dark); padding-bottom: 6px; margin-bottom: 16px; }
         .matrix-box ul { list-style: none; }
-        .matrix-box li { font-size: 1.05rem; margin-bottom: 6px; position: relative; padding-left: 14px; }
-        .matrix-box li::before { content: "▪"; color: var(--accent-blue); position: absolute; left: 0; font-size: 0.8rem; top: 1px; }
+        .matrix-box li { font-size: 1.05rem; margin-bottom: 8px; position: relative; padding-left: 18px; text-align: justify; }
+        .matrix-box li::before { content: "▪"; color: var(--accent-blue); position: absolute; left: 0; font-size: 0.8rem; top: 2px; }
 
-        /* Professional Report / Work Experience Layout */
-        .report-block { margin-bottom: 32px; }
-        .report-header { display: flex; justify-content: space-between; font-weight: bold; font-size: 1.15rem; color: var(--navy-dark); border-bottom: 1px solid #e2e8f0; padding-bottom: 2px; }
-        .report-sub { display: flex; justify-content: space-between; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 0.9rem; font-weight: 600; color: var(--accent-blue); margin-top: 4px; margin-bottom: 12px; text-transform: uppercase; }
-        .report-date { color: var(--text-muted); font-weight: 500; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 0.85rem; }
+        /* Realigned Experience Layout */
+        .report-block { margin-bottom: 40px; width: 100%; }
+        .report-block:last-child { margin-bottom: 0; }
+        .report-header { display: flex; justify-content: space-between; align-items: baseline; font-weight: bold; font-size: 1.2rem; color: var(--navy-dark); border-bottom: 1px solid var(--border-color); padding-bottom: 4px; }
+        .report-sub { display: flex; justify-content: space-between; align-items: baseline; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 0.9rem; font-weight: 600; color: var(--accent-blue); margin-top: 6px; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.02em; }
+        .report-date { color: var(--text-muted); font-weight: 500; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 0.85rem; letter-spacing: 0; text-transform: none; }
         .report-block ul { list-style: none; }
-        .report-block li { font-size: 1.05rem; margin-bottom: 8px; position: relative; padding-left: 18px; text-align: justify; }
+        .report-block li { font-size: 1.05rem; margin-bottom: 10px; position: relative; padding-left: 20px; text-align: justify; color: #1e293b; }
         .report-block li::before { content: "—"; color: var(--text-muted); position: absolute; left: 0; }
 
-        /* Publication Layout mimicking modern investment pitch documents */
-        .deck-row { display: grid; grid-template-columns: repeat(1, 1fr); gap: 24px; }
-        .pub-panel { background: #ffffff; border: 1px solid var(--border-color); padding: 24px; position: relative; }
-        .pub-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+        /* Publication Layout Blocks */
+        .deck-row { display: flex; flex-direction: column; gap: 24px; width: 100%; }
+        .pub-panel { background: #ffffff; border: 1px solid var(--border-color); padding: 24px; width: 100%; }
+        .pub-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; border-bottom: 1px dashed var(--border-color); padding-bottom: 8px; }
         .pub-title { font-weight: bold; font-size: 1.2rem; color: var(--navy-dark); }
-        .pub-link { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em; border: 1px solid var(--accent-blue); color: var(--accent-blue); padding: 4px 10px; text-decoration: none; text-transform: uppercase; }
+        .pub-link { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em; border: 1px solid var(--accent-blue); color: var(--accent-blue); padding: 5px 12px; text-decoration: none; text-transform: uppercase; transition: all 0.2s; }
         .pub-link:hover { background: var(--accent-blue); color: #ffffff; }
 
-        /* Academic Matrix Block */
-        .edu-matrix { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-        .edu-node { background: #ffffff; border: 1px solid var(--border-color); border-top: 3px solid var(--navy-dark); padding: 20px; }
-        .edu-node h3 { font-size: 1.15rem; color: var(--navy-dark); font-weight: bold; }
-        .edu-inst { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 0.85rem; color: var(--accent-blue); text-transform: uppercase; font-weight: 600; margin-top: 2px; }
-        .edu-score-row { margin-top: 16px; display: flex; justify-content: space-between; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 0.85rem; border-top: 1px solid #f1f5f9; padding-top: 8px; color: var(--text-muted); }
+        /* Academic Block Alignment */
+        .edu-matrix { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; width: 100%; }
+        .edu-node { background: #ffffff; border: 1px solid var(--border-color); border-top: 3px solid var(--navy-dark); padding: 24px; display: flex; flex-direction: column; justify-content: space-between; }
+        .edu-node h3 { font-size: 1.15rem; color: var(--navy-dark); font-weight: bold; line-height: 1.2; }
+        .edu-inst { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 0.85rem; color: var(--accent-blue); text-transform: uppercase; font-weight: 600; margin-top: 4px; }
+        .edu-score-row { margin-top: 24px; display: flex; justify-content: space-between; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 0.85rem; border-top: 1px solid #f1f5f9; padding-top: 12px; color: var(--text-muted); }
 
         @media (max-width: 768px) {
             .nav-brand { display: none; }
@@ -85,10 +92,11 @@
             .nav-links { gap: 14px; }
             .hero-layout { padding: 24px; }
             .hero-layout h1 { font-size: 2.2rem; }
-            .meta-data-table, .matrix-grid, .edu-matrix { grid-template-columns: 1fr; gap: 16px; }
-            .report-header, .report-sub, .pub-top { flex-direction: column; }
+            .meta-data-table { grid-template-columns: 1fr; gap: 16px; }
+            .matrix-grid, .edu-matrix { grid-template-columns: 1fr; gap: 24px; }
+            .report-header, .report-sub, .pub-top { flex-direction: column; align-items: flex-start; gap: 4px; }
             .report-date { margin-top: 2px; }
-            .pub-link { margin-top: 8px; display: inline-block; width: max-content; }
+            .pub-link { margin-top: 4px; display: inline-block; }
         }
     </style>
 </head>
@@ -120,15 +128,15 @@
                 </p>
 
                 <div class="meta-data-table">
-                    <div>
+                    <div class="meta-column">
                         <div class="meta-label">Location Base</div>
                         <div class="meta-val">Chennai, Tamil Nadu - 600056[cite: 1]</div>
                     </div>
-                    <div>
+                    <div class="meta-column">
                         <div class="meta-label">Secure Contact</div>
                         <div class="meta-val">+91 93608 28664[cite: 1] | cfajaidev@gmail.com[cite: 1]</div>
                     </div>
-                    <div>
+                    <div class="meta-column">
                         <div class="meta-label">External Verification</div>
                         <div class="meta-val"><a href="https://linkedin.com/in/YOUR-LINKEDIN-URL" target="_blank">LinkedIn Dossier ↗</a></div>
                     </div>
@@ -145,11 +153,11 @@
             <div class="matrix-grid" style="margin-bottom: 24px;">
                 <div class="matrix-box" style="border-top: 2px solid var(--accent-blue);">
                     <h3>NISM Series XV — Research Analyst</h3>
-                    <p style="font-size:0.95rem; line-height:1.4; color:var(--text-muted); margin-bottom:0; font-family:-apple-system, BlinkMacSystemFont, sans-serif;">National Institute of Securities Markets | Issued April 2026[cite: 1]. SEBI-mandated operational validation for publishing public and private equity research frameworks within Indian capital markets[cite: 1].</p>
+                    <p style="font-size:0.95rem; line-height:1.4; color:var(--text-muted); margin-bottom:0; font-family:-apple-system, BlinkMacSystemFont, sans-serif; text-align: left;">National Institute of Securities Markets | Issued April 2026[cite: 1]. SEBI-mandated operational validation for publishing public and private equity research frameworks within Indian capital markets[cite: 1].</p>
                 </div>
                 <div class="matrix-box" style="border-top: 2px solid var(--accent-blue);">
                     <h3>Financial Modelling & Valuation</h3>
-                    <p style="font-size:0.95rem; line-height:1.4; color:var(--text-muted); margin-bottom:0; font-family:-apple-system, BlinkMacSystemFont, sans-serif;">NSE - Grant Thornton | Matrix Framework 2025[cite: 1]. Specialized institutional engineering credential focusing on dynamic valuation modeling structures[cite: 1].</p>
+                    <p style="font-size:0.95rem; line-height:1.4; color:var(--text-muted); margin-bottom:0; font-family:-apple-system, BlinkMacSystemFont, sans-serif; text-align: left;">NSE - Grant Thornton | Matrix Framework 2025[cite: 1]. Specialized institutional engineering credential focusing on dynamic valuation modeling structures[cite: 1].</p>
                 </div>
             </div>
 
@@ -204,7 +212,9 @@
                     <span>Personal & Family Private Office Portfolio</span>
                     <span class="report-date">2022 – Present[cite: 1]</span>
                 </div>
-                <div class="report-sub">Equity Research & Investment Portfolio Management[cite: 1]</div>
+                <div class="report-sub">
+                    <span>Equity Research & Investment Portfolio Management[cite: 1]</span>
+                </div>
                 <p style="font-style: italic; color: var(--text-muted); font-size: 0.95rem; margin-bottom: 12px; font-family: -apple-system, sans-serif;">Concurrent execution alongside professional business management mandates[cite: 1].</p>
                 <ul>
                     <li>Co-managed a 10-50L multi-asset equity portfolio, generating 5-10% alpha above the Nifty 50 CAGR through bottom-up stock selection, DCF-driven valuation, and active sector rotation across FMCG, NBFC, IT services, and pharma[cite: 1].</li>
@@ -221,7 +231,9 @@
                     <span>Subhiksha Hotels and Resorts Pvt. Ltd.</span>
                     <span class="report-date">Jan 2024 – Jun 2024[cite: 1]</span>
                 </div>
-                <div class="report-sub">Corporate Finance Intern[cite: 1]</div>
+                <div class="report-sub">
+                    <span>Corporate Finance Intern[cite: 1]</span>
+                </div>
                 <ul>
                     <li>Designed and implemented cost optimisation strategies by building cost-variance and trend-forecasting models, directly driving a 10% improvement in net profit margins within the 6-month internship period[cite: 1].</li>
                     <li>Executed end-to-end financial planning and analysis (FP&A) — monitoring KPIs, tracking operational performance, and identifying structural inefficiencies across departments[cite: 1].</li>
@@ -272,8 +284,10 @@
             <div class="edu-matrix">
                 
                 <div class="edu-node">
-                    <h3>MBA — Finance & Analytics</h3>
-                    <div class="edu-inst">VIT University, Chennai[cite: 1]</div>
+                    <div>
+                        <h3>MBA — Finance & Analytics</h3>
+                        <div class="edu-inst">VIT University, Chennai[cite: 1]</div>
+                    </div>
                     <div class="edu-score-row">
                         <span>CGPA: 8.13 / 10.0[cite: 1]</span>
                         <span>Class of 2026[cite: 1]</span>
@@ -281,8 +295,10 @@
                 </div>
 
                 <div class="edu-node">
-                    <h3>BBA — Financial Planning</h3>
-                    <div class="edu-inst">MGR University, Chennai[cite: 1]</div>
+                    <div>
+                        <h3>BBA — Financial Planning</h3>
+                        <div class="edu-inst">MGR University, Chennai[cite: 1]</div>
+                    </div>
                     <div class="edu-score-row">
                         <span>CGPA: 8.86 / 10.0[cite: 1]</span>
                         <span>Class of 2024[cite: 1]</span>
@@ -290,11 +306,13 @@
                 </div>
 
                 <div class="edu-node" style="border-top-color: var(--accent-blue);">
-                    <h3>CFA® Program Candidate</h3>
-                    <div class="edu-inst">CFA Institute[cite: 1]</div>
+                    <div>
+                        <h3>CFA® Program Candidate</h3>
+                        <div class="edu-inst">CFA Institute[cite: 1]</div>
+                    </div>
                     <div class="edu-score-row">
                         <span>Level 1 Target[cite: 1]</span>
-                        <span>Exam Window: Feb 2027[cite: 1]</span>
+                        <span>Exam: Feb 2027[cite: 1]</span>
                     </div>
                 </div>
 
