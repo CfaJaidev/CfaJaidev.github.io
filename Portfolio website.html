@@ -6,245 +6,324 @@
     <title>Jaidev M. | Equity Research Portfolio</title>
     <style>
         :root {
-            --primary: #0f172a;
-            --secondary: #1d4ed8;
-            --text-main: #334155;
-            --text-muted: #64748b;
-            --bg: #f8fafc;
-            --card-bg: #ffffff;
-            --border: #e2e8f0;
+            --navy-dark: #0f172a;
+            --navy-mid: #1e293b;
+            --accent-blue: #2563eb;
+            --bg-light: #f8fafc;
+            --border-color: #cbd5e1;
+            --text-dark: #0f172a;
+            --text-muted: #475569;
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; background-color: var(--bg); color: var(--text-main); line-height: 1.6; padding: 40px 20px; }
-        .container { max-width: 850px; margin: 0 auto; }
         
-        header { border-bottom: 3px solid var(--primary); padding-bottom: 24px; margin-bottom: 32px; }
-        .header-top { display: flex; justify-content: space-between; align-items: flex-start; }
-        h1 { color: var(--primary); font-size: 2.2rem; font-weight: 700; letter-spacing: -0.025em; }
-        .title-tag { font-size: 1.1rem; color: var(--secondary); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
-        .contact-info { text-align: right; font-size: 0.9rem; color: var(--text-main); }
-        .links { margin-top: 12px; display: flex; justify-content: flex-end; gap: 16px; font-weight: 500; }
-        .links a { color: var(--secondary); text-decoration: none; }
-        .links a:hover { text-decoration: underline; }
+        * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
+        body { font-family: "Times New Roman", Times, Georgia, serif; color: var(--text-dark); background: #ffffff; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
 
-        section { margin-bottom: 36px; }
-        h2 { color: var(--primary); font-size: 1.3rem; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 1px solid var(--border); padding-bottom: 6px; margin-bottom: 16px; }
-        p { font-size: 0.95rem; margin-bottom: 12px; text-align: justify; }
+        /* Fixed Corporate Header Nav */
+        nav { position: fixed; top: 0; left: 0; width: 100%; background: #ffffff; border-bottom: 2px solid var(--navy-dark); z-index: 1000; display: flex; justify-content: center; padding: 0 20px; }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1000px; width: 100%; height: 60px; }
+        .nav-brand { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 700; font-size: 0.95rem; letter-spacing: 0.05em; color: var(--navy-dark); text-transform: uppercase; }
+        .nav-links { display: flex; gap: 24px; align-items: center; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; transition: color 0.2s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--accent-blue); }
+        .nav-links .cta-contact { border: 1px solid var(--navy-dark); padding: 6px 14px; font-size: 0.75rem; color: var(--navy-dark); transition: all 0.2s; }
+        .nav-links .cta-contact:hover { background: var(--navy-dark); color: #ffffff; }
 
-        .skills-container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
-        .skills-group h3 { font-size: 1rem; color: var(--primary); margin-bottom: 8px; }
-        .skills-group ul { list-style: none; }
-        .skills-group li { font-size: 0.9rem; margin-bottom: 4px; position: relative; padding-left: 14px; }
-        .skills-group li::before { content: "•"; color: var(--secondary); position: absolute; left: 0; font-weight: bold; }
+        /* Full Height Layouts mimicking research presentation slides */
+        .page-panel { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 100px 20px 60px 20px; }
+        .page-panel:nth-of-type(even) { background: var(--bg-light); }
+        .panel-content { max-width: 950px; width: 100%; }
 
-        .exp-item { margin-bottom: 24px; }
-        .exp-header { display: flex; justify-content: space-between; font-weight: 600; color: var(--primary); font-size: 1rem; }
-        .exp-sub { display: flex; justify-content: space-between; color: var(--secondary); font-size: 0.95rem; font-weight: 500; margin-bottom: 6px; }
-        .exp-date { color: var(--text-muted); font-weight: normal; font-size: 0.9rem; }
-        .exp-item ul { list-style-type: square; margin-left: 18px; font-size: 0.95rem; }
-        .exp-item li { margin-bottom: 6px; }
+        /* Typography matching Institutional Research Papers */
+        h2 { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: var(--navy-dark); font-size: 1.4rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; border-bottom: 2px solid var(--navy-dark); padding-bottom: 6px; margin-bottom: 28px; display: flex; justify-content: space-between; align-items: flex-end; }
+        h2 .section-meta { font-size: 0.75rem; color: var(--text-muted); font-weight: 400; letter-spacing: 0; text-transform: none; }
+        
+        p { font-size: 1.1rem; line-height: 1.6; text-align: justify; color: #1e293b; margin-bottom: 16px; }
 
-        .project-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 6px; padding: 20px; margin-bottom: 16px; }
-        .project-title { font-weight: 700; color: var(--primary); font-size: 1.05rem; display: flex; justify-content: space-between; align-items: center; }
-        .project-btn { font-size: 0.85rem; background: #eff6ff; color: var(--secondary); padding: 4px 10px; border-radius: 4px; text-decoration: none; font-weight: 600; }
-        .project-btn:hover { background: var(--secondary); color: white; }
-        .project-desc { font-size: 0.95rem; margin-top: 6px; color: var(--text-main); }
+        /* Hero / Cover Page Styling */
+        .hero-layout { border: 1px solid var(--border-color); padding: 48px; background: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.01); }
+        .hero-layout h1 { font-size: 3.2rem; font-weight: 400; color: var(--navy-dark); letter-spacing: -0.02em; margin-bottom: 4px; }
+        .hero-subtitle { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 1.1rem; color: var(--accent-blue); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 24px; }
+        .meta-data-table { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; border-top: 1px dashed var(--border-color); padding-top: 20px; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 0.85rem; }
+        .meta-label { color: var(--text-muted); text-transform: uppercase; font-weight: 600; font-size: 0.75rem; margin-bottom: 2px; }
+        .meta-val a { color: var(--text-dark); text-decoration: none; border-bottom: 1px solid var(--border-color); }
 
-        .edu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-        .edu-card { background: var(--card-bg); border-left: 3px solid var(--secondary); padding: 12px 16px; border-radius: 0 6px 6px 0; box-shadow: 0 1px 2px rgba(0,0,0,0.02); }
-        .edu-title { font-weight: 700; color: var(--primary); font-size: 0.95rem; }
-        .edu-org { font-size: 0.9rem; color: var(--text-main); font-weight: 500; }
-        .edu-meta { font-size: 0.85rem; color: var(--text-muted); margin-top: 4px; display: flex; justify-content: space-between; }
+        /* Grid Framework for Competencies Matrix */
+        .matrix-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .matrix-box { background: #ffffff; border: 1px solid var(--border-color); padding: 20px; }
+        .matrix-box h3 { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 0.9rem; font-weight: 700; text-transform: uppercase; color: var(--navy-dark); letter-spacing: 0.05em; border-bottom: 1px solid var(--navy-dark); padding-bottom: 4px; margin-bottom: 12px; }
+        .matrix-box ul { list-style: none; }
+        .matrix-box li { font-size: 1.05rem; margin-bottom: 6px; position: relative; padding-left: 14px; }
+        .matrix-box li::before { content: "▪"; color: var(--accent-blue); position: absolute; left: 0; font-size: 0.8rem; top: 1px; }
 
-        @media (max-width: 650px) {
-            .header-top { flex-direction: column; }
-            .contact-info { text-align: left; margin-top: 12px; }
-            .links { justify-content: flex-start; }
-            .skills-container, .edu-grid { grid-template-columns: 1fr; }
-            .exp-header, .exp-sub { flex-direction: column; }
-            .exp-date { margin-top: 2px; }
+        /* Professional Report / Work Experience Layout */
+        .report-block { margin-bottom: 32px; }
+        .report-header { display: flex; justify-content: space-between; font-weight: bold; font-size: 1.15rem; color: var(--navy-dark); border-bottom: 1px solid #e2e8f0; padding-bottom: 2px; }
+        .report-sub { display: flex; justify-content: space-between; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 0.9rem; font-weight: 600; color: var(--accent-blue); margin-top: 4px; margin-bottom: 12px; text-transform: uppercase; }
+        .report-date { color: var(--text-muted); font-weight: 500; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 0.85rem; }
+        .report-block ul { list-style: none; }
+        .report-block li { font-size: 1.05rem; margin-bottom: 8px; position: relative; padding-left: 18px; text-align: justify; }
+        .report-block li::before { content: "—"; color: var(--text-muted); position: absolute; left: 0; }
+
+        /* Publication Layout mimicking modern investment pitch documents */
+        .deck-row { display: grid; grid-template-columns: repeat(1, 1fr); gap: 24px; }
+        .pub-panel { background: #ffffff; border: 1px solid var(--border-color); padding: 24px; position: relative; }
+        .pub-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+        .pub-title { font-weight: bold; font-size: 1.2rem; color: var(--navy-dark); }
+        .pub-link { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em; border: 1px solid var(--accent-blue); color: var(--accent-blue); padding: 4px 10px; text-decoration: none; text-transform: uppercase; }
+        .pub-link:hover { background: var(--accent-blue); color: #ffffff; }
+
+        /* Academic Matrix Block */
+        .edu-matrix { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+        .edu-node { background: #ffffff; border: 1px solid var(--border-color); border-top: 3px solid var(--navy-dark); padding: 20px; }
+        .edu-node h3 { font-size: 1.15rem; color: var(--navy-dark); font-weight: bold; }
+        .edu-inst { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 0.85rem; color: var(--accent-blue); text-transform: uppercase; font-weight: 600; margin-top: 2px; }
+        .edu-score-row { margin-top: 16px; display: flex; justify-content: space-between; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 0.85rem; border-top: 1px solid #f1f5f9; padding-top: 8px; color: var(--text-muted); }
+
+        @media (max-width: 768px) {
+            .nav-brand { display: none; }
+            .nav-container { justify-content: center; }
+            .nav-links { gap: 14px; }
+            .hero-layout { padding: 24px; }
+            .hero-layout h1 { font-size: 2.2rem; }
+            .meta-data-table, .matrix-grid, .edu-matrix { grid-template-columns: 1fr; gap: 16px; }
+            .report-header, .report-sub, .pub-top { flex-direction: column; }
+            .report-date { margin-top: 2px; }
+            .pub-link { margin-top: 8px; display: inline-block; width: max-content; }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <header>
-        <div class="header-top">
-            <div>
+    <nav>
+        <div class="nav-container">
+            <div class="nav-brand">Institutional Portfolio Matrix</div>
+            <div class="nav-links">
+                <a href="#about">Executive Summary</a>
+                <a href="#skills">Competencies</a>
+                <a href="#experience">Track Record</a>
+                <a href="#publications">Research Output</a>
+                <a href="#education">Credentials</a>
+                <a href="mailto:cfajaidev@gmail.com" class="cta-contact">Contact Analyst</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- EXECUTIVE SUMMARY -->
+    <div id="about" class="page-panel">
+        <div class="panel-content">
+            <div class="hero-layout">
                 <h1>JAIDEV M.</h1>
-                <div class="title-tag">Equity Research Analyst</div>
-            </div>
-            <div class="contact-info">
-                <div>Chennai, Tamil Nadu - 600056</div>
-                <div>+91 93608 28664</div>
-                <div>cfajaidev@gmail.com</div>
-            </div>
-        </div>
-        <div class="links">
-            <a href="mailto:cfajaidev@gmail.com">📧 Email Me</a>
-            <a href="https://linkedin.com/in/YOUR-LINKEDIN-URL" target="_blank">🔗 LinkedIn</a>
-        </div>
-    </header>
+                <div class="hero-subtitle">Equity Research Analyst</div>
+                
+                <p>
+                    Equity Research Analyst with 4 years of active investment experience across fundamental analysis, financial modelling, and portfolio management[cite: 1]. Demonstrated track record of generating 5-10% alpha above the Nifty 50 benchmark through disciplined, bottom-up stock selection across FMCG, NBFC, IT services, pharma, and semiconductor sectors[cite: 1]. Certified NISM Research Analyst (April 2026) mandatory to publish equity research under SEBI regulations[cite: 1]. Experienced in producing institutional-grade output: three-statement models, DCF and relative valuation frameworks, sector initiation reports, earnings notes, and multi-model pitch books[cite: 1]. Seeking a full-time equity research role where rigorous fundamental analysis and a structured investment process can generate consistent alpha[cite: 1].
+                </p>
 
-    <section id="summary">
-        <h2>Professional Summary</h2>
-        <p>Equity Research Analyst with 4 years of active investment experience across fundamental analysis, financial modelling, and portfolio management. Demonstrated track record of generating 5-10% alpha above the Nifty 50 benchmark through disciplined, bottom-up stock selection across FMCG, NBFC, IT services, pharma, and semiconductor sectors. Certified NISM Research Analyst (April 2026) mandatory to publish equity research under SEBI regulations. Experienced in producing institutional-grade output: three-statement models, DCF and relative valuation frameworks, sector initiation reports, earnings notes, and multi-model pitch books. Seeking a full-time equity research role where rigorous fundamental analysis and a structured investment process can generate consistent alpha.</p>
-    </section>
-
-    <section id="certifications">
-        <h2>Professional Certifications</h2>
-        <div class="exp-item" style="margin-bottom: 12px;">
-            <div class="exp-header">
-                <span>NISM Series XV - Research Analyst Certification</span>
-                <span class="exp-date">April 2026</span>
-            </div>
-            <div class="exp-sub">National Institute of Securities Markets</div>
-            <p style="font-size: 0.9rem; color: var(--text-muted); font-style: italic;">SEBI-mandated qualification for registered equity research analysts in India</p>
-        </div>
-        <div class="exp-item">
-            <div class="exp-header">
-                <span>Financial Modelling & Valuation Certification</span>
-                <span class="exp-date">2025</span>
-            </div>
-            <div class="exp-sub">NSE - Grant Thornton</div>
-        </div>
-    </section>
-
-    <section id="skills">
-        <h2>Core Competencies & Technical Skills</h2>
-        <div class="skills-container">
-            <div class="skills-group">
-                <h3>Investment Analysis</h3>
-                <ul>
-                    <li>DCF valuation with WACC sensitivity analysis</li>
-                    <li>Comparable company analysis (CCA)</li>
-                    <li>DuPont ROE decomposition & Altman Z-score</li>
-                    <li>IPO valuation & fair value estimation</li>
-                </ul>
-            </div>
-            <div class="skills-group">
-                <h3>Research & Coverage</h3>
-                <ul>
-                    <li>Three-statement financial modelling</li>
-                    <li>Sector initiation reports & earnings notes</li>
-                    <li>Longitudinal stock tracking & earnings quality</li>
-                    <li>Sectors: FMCG, NBFC, IT, Pharma, Semiconductors</li>
-                </ul>
-            </div>
-            <div class="skills-group">
-                <h3>Tools & Platforms</h3>
-                <ul>
-                    <li>Advanced Excel - dynamic financial models</li>
-                    <li>Python - pandas, data analysis</li>
-                    <li>Power BI executive dashboards</li>
-                    <li>Screener.in, Trendlyne, BSE/NSE filings</li>
-                </ul>
-            </div>
-            <div class="skills-group">
-                <h3>Research Output</h3>
-                <ul>
-                    <li>Buy/hold/sell recommendations with price targets</li>
-                    <li>Multi-model pitch books (institutional grade)</li>
-                    <li>Investment thesis & margin of safety analysis</li>
-                    <li>Financial dashboards for senior leadership</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section id="experience">
-        <h2>Professional Experience</h2>
-        
-        <div class="exp-item">
-            <div class="exp-header">
-                <span>Personal & Family Portfolio</span>
-                <span class="exp-date">2022 – Present</span>
-            </div>
-            <div class="exp-sub">Equity Research & Investment Management</div>
-            <p style="font-style: italic; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 8px;">Self-directed research and investment management conducted concurrently with full-time BBA and MBA studies</p>
-            <ul>
-                <li>Co-managed a 10-50L multi-asset equity portfolio, generating 5-10% alpha above the Nifty 50 CAGR through bottom-up stock selection, DCF-driven valuation, and active sector rotation across FMCG, NBFC, IT services, and pharma.</li>
-                <li>Built three-statement financial models and authored initiation and earnings notes for 4+ listed equities (Nestle, Muthoot Finance, Coforge, and Hindustan Unilever) producing buy/hold/sell recommendations with 12-month price targets backed by DCF and EV/EBITDA analysis.</li>
-                <li>Conducted pre-IPO valuation assessments for Ixigo, Meesho, and Pine Labs, deriving fair value ranges using DCF analysis to evaluate long-term investment thesis and pricing.</li>
-                <li>Applied technical analysis including RSI, moving average crossovers, and support/resistance levels as a secondary overlay to time entry and exit points, improving cost basis on 6+ positions against fundamental conviction calls.</li>
-                <li>Maintained a structured investment tracker consolidating position-level P&L, portfolio turnover, and return attribution across holdings; used periodic performance reviews to assess stock-specific alpha versus broader market and sectoral tailwinds.</li>
-                <li>Monitored key financial and macro indicators—earnings revisions, margins, RoE/RoCE trends, credit growth, and policy rate movements—to assess sector-level headwinds and refine coverage universe prioritization.</li>
-            </ul>
-        </div>
-
-        <div class="exp-item">
-            <div class="exp-header">
-                <span>Subhiksha Hotels and Resorts Pvt. Ltd.</span>
-                <span class="exp-date">Jan 2024 – Jun 2024</span>
-            </div>
-            <div class="exp-sub">Corporate Finance Intern</div>
-            <ul>
-                <li>Designed and implemented cost optimisation strategies by building cost-variance and trend-forecasting models, directly driving a 10% improvement in net profit margins within the 6-month internship period.</li>
-                <li>Executed end-to-end financial planning and analysis (FP&A) - monitoring KPIs, tracking operational performance, and identifying structural inefficiencies across departments.</li>
-                <li>Translated financial statements into concise executive dashboards for senior leadership, enabling data-driven quarterly planning and budget vs. actuals review.</li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="publications">
-        <h2>Equity Research & Publications</h2>
-        
-        <div class="project-card">
-            <div class="project-title">
-                <span>Semiconductor Sector Pitch Book</span>
-                <a href="#" class="project-btn" target="_blank">View Pitch Book ↗</a>
-            </div>
-            <div class="project-desc">Authored an institutional-grade pitch book on India's semiconductor ecosystem covering 4 listed players (Tata Elxsi, ASM Technologies, Hind Rectifiers, RIR Power Electronics). Built a multi-model valuation framework combining DCF with dynamic WACC sensitivity, relative valuation (P/E, EV/EBITDA), DuPont analysis, and Altman Z-score to deconstruct ROE drivers and risk profiles.</div>
-        </div>
-
-        <div class="project-card">
-            <div class="project-title">
-                <span>Natco Pharma - Longitudinal Stock Analysis</span>
-                <a href="#" class="project-btn" target="_blank">View Report ↗</a>
-            </div>
-            <div class="project-desc">Conducted a 5-year longitudinal tracking and financial performance analysis of Natco Pharma through Q3-2026, covering earnings quality, pipeline developments, margin expansion, and macro regulatory compliance impacts.</div>
-        </div>
-
-        <div class="project-card">
-            <div class="project-title">
-                <span>"Equity Insights" Market Commentary Platform</span>
-                <a href="#" class="project-btn" target="_blank">Visit Platform ↗</a>
-            </div>
-            <div class="project-desc">Founder and author of a dedicated platform publishing regular analytical commentary on Indian capital markets, covering corporate actions, macroeconomic developments, and geopolitical impacts on listed equities.</div>
-        </div>
-    </section>
-
-    <section id="education">
-        <h2>Education & Targets</h2>
-        <div class="edu-grid">
-            <div class="edu-card">
-                <div class="edu-title">MBA - Finance & Analytics</div>
-                <div class="edu-org">VIT University, Chennai</div>
-                <div class="edu-meta">
-                    <span>CGPA: 8.13 / 10.0</span>
-                    <span>Graduated 2026</span>
-                </div>
-            </div>
-            <div class="edu-card">
-                <div class="edu-title">BBA - Financial Planning</div>
-                <div class="edu-org">MGR University, Chennai</div>
-                <div class="edu-meta">
-                    <span>CGPA: 8.86 / 10.0</span>
-                    <span>Graduated 2024</span>
-                </div>
-            </div>
-            <div class="edu-card" style="border-left-color: var(--primary);">
-                <div class="edu-title">CFA Program Candidate</div>
-                <div class="edu-org">CFA Institute</div>
-                <div class="edu-meta">
-                    <span>Level 1 Target</span>
-                    <span>Exam: Feb 2027</span>
+                <div class="meta-data-table">
+                    <div>
+                        <div class="meta-label">Location Base</div>
+                        <div class="meta-val">Chennai, Tamil Nadu - 600056[cite: 1]</div>
+                    </div>
+                    <div>
+                        <div class="meta-label">Secure Contact</div>
+                        <div class="meta-val">+91 93608 28664[cite: 1] | cfajaidev@gmail.com[cite: 1]</div>
+                    </div>
+                    <div>
+                        <div class="meta-label">External Verification</div>
+                        <div class="meta-val"><a href="https://linkedin.com/in/YOUR-LINKEDIN-URL" target="_blank">LinkedIn Dossier ↗</a></div>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
-</div>
+    </div>
 
+    <!-- COMPETENCIES & CERTIFICATIONS -->
+    <div id="skills" class="page-panel">
+        <div class="panel-content">
+            <h2>Core Capabilities & Frameworks <span class="section-meta">Technical Breakdown</span></h2>
+            
+            <div class="matrix-grid" style="margin-bottom: 24px;">
+                <div class="matrix-box" style="border-top: 2px solid var(--accent-blue);">
+                    <h3>NISM Series XV — Research Analyst</h3>
+                    <p style="font-size:0.95rem; line-height:1.4; color:var(--text-muted); margin-bottom:0; font-family:-apple-system, BlinkMacSystemFont, sans-serif;">National Institute of Securities Markets | Issued April 2026[cite: 1]. SEBI-mandated operational validation for publishing public and private equity research frameworks within Indian capital markets[cite: 1].</p>
+                </div>
+                <div class="matrix-box" style="border-top: 2px solid var(--accent-blue);">
+                    <h3>Financial Modelling & Valuation</h3>
+                    <p style="font-size:0.95rem; line-height:1.4; color:var(--text-muted); margin-bottom:0; font-family:-apple-system, BlinkMacSystemFont, sans-serif;">NSE - Grant Thornton | Matrix Framework 2025[cite: 1]. Specialized institutional engineering credential focusing on dynamic valuation modeling structures[cite: 1].</p>
+                </div>
+            </div>
+
+            <div class="matrix-grid">
+                <div class="matrix-box">
+                    <h3>Investment Analysis</h3>
+                    <ul>
+                        <li>DCF valuation with WACC sensitivity analysis[cite: 1]</li>
+                        <li>Comparable company analysis (CCA)[cite: 1]</li>
+                        <li>DuPont ROE decomposition & Altman Z-score[cite: 1]</li>
+                        <li>IPO valuation & fair value estimation[cite: 1]</li>
+                    </ul>
+                </div>
+                <div class="matrix-box">
+                    <h3>Research & Coverage</h3>
+                    <ul>
+                        <li>Three-statement financial modelling[cite: 1]</li>
+                        <li>Sector initiation reports & earnings notes[cite: 1]</li>
+                        <li>Longitudinal stock tracking & earnings quality[cite: 1]</li>
+                        <li>Sectors: FMCG, NBFC, IT, Pharma, Semiconductors[cite: 1]</li>
+                    </ul>
+                </div>
+                <div class="matrix-box">
+                    <h3>Tools & Operational Platforms</h3>
+                    <ul>
+                        <li>Advanced Excel — Dynamic Financial Models[cite: 1]</li>
+                        <li>Python Data Analysis (Pandas, Libraries)[cite: 1]</li>
+                        <li>Power BI Architecture & Executive Dashboards[cite: 1]</li>
+                        <li>Screener.in, Trendlyne, Regulatory Filing Portals[cite: 1]</li>
+                    </ul>
+                </div>
+                <div class="matrix-box">
+                    <h3>Analytical Output</h3>
+                    <ul>
+                        <li>Buy/hold/sell target parameters[cite: 1]</li>
+                        <li>Institutional grade multi-model pitch books[cite: 1]</li>
+                        <li>Investment thesis & structural margin of safety[cite: 1]</li>
+                        <li>Data reporting engines for executive leadership[cite: 1]</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- EXPERIENCE / ACCOUNTABILITY -->
+    <div id="experience" class="page-panel">
+        <div class="panel-content">
+            <h2>Professional Track Record <span class="section-meta">Operational Mandates</span></h2>
+            
+            <div class="report-block">
+                <div class="report-header">
+                    <span>Personal & Family Private Office Portfolio</span>
+                    <span class="report-date">2022 – Present[cite: 1]</span>
+                </div>
+                <div class="report-sub">Equity Research & Investment Portfolio Management[cite: 1]</div>
+                <p style="font-style: italic; color: var(--text-muted); font-size: 0.95rem; margin-bottom: 12px; font-family: -apple-system, sans-serif;">Concurrent execution alongside professional business management mandates[cite: 1].</p>
+                <ul>
+                    <li>Co-managed a 10-50L multi-asset equity portfolio, generating 5-10% alpha above the Nifty 50 CAGR through bottom-up stock selection, DCF-driven valuation, and active sector rotation across FMCG, NBFC, IT services, and pharma[cite: 1].</li>
+                    <li>Built three-statement financial models and authored initiation and earnings notes for 4+ listed equities (Nestle, Muthoot Finance, Coforge, and Hindustan Unilever) producing buy/hold/sell recommendations with 12-month price targets backed by DCF and EV/EBITDA analysis[cite: 1].</li>
+                    <li>Conducted pre-IPO valuation assessments for Ixigo, Meesho, and Pine Labs, deriving fair value ranges using DCF analysis to evaluate long-term investment thesis and pricing[cite: 1].</li>
+                    <li>Applied technical analysis including RSI, moving average crossovers, and support/resistance levels as a secondary overlay to time entry and exit points, improving cost basis on 6+ positions against fundamental conviction calls[cite: 1].</li>
+                    <li>Maintained a structured investment tracker consolidating position-level P&L, portfolio turnover, and return attribution across holdings; used periodic performance reviews to assess stock-specific alpha versus broader market and sectoral tailwinds[cite: 1].</li>
+                    <li>Monitored key financial and macro indicators—earnings revisions, margins, RoE/RoCE trends, credit growth, and policy rate movements—to assess sector-level headwinds and refine coverage universe prioritization[cite: 1].</li>
+                </ul>
+            </div>
+
+            <div class="report-block">
+                <div class="report-header">
+                    <span>Subhiksha Hotels and Resorts Pvt. Ltd.</span>
+                    <span class="report-date">Jan 2024 – Jun 2024[cite: 1]</span>
+                </div>
+                <div class="report-sub">Corporate Finance Intern[cite: 1]</div>
+                <ul>
+                    <li>Designed and implemented cost optimisation strategies by building cost-variance and trend-forecasting models, directly driving a 10% improvement in net profit margins within the 6-month internship period[cite: 1].</li>
+                    <li>Executed end-to-end financial planning and analysis (FP&A) — monitoring KPIs, tracking operational performance, and identifying structural inefficiencies across departments[cite: 1].</li>
+                    <li>Translated financial statements into concise executive dashboards for senior leadership, enabling data-driven quarterly planning and budget vs. actuals review[cite: 1].</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- PUBLICATIONS / ARTIFACTS -->
+    <div id="publications" class="page-panel">
+        <div class="panel-content">
+            <h2>Formal Equity Research & Publications <span class="section-meta">Institutional Artifacts</span></h2>
+            <div class="deck-row">
+                
+                <div class="pub-panel">
+                    <div class="pub-top">
+                        <div class="pub-title">Semiconductor Ecosystem Valuation Book</div>
+                        <a href="#" class="pub-link" target="_blank">Access Pitch Book ↗[cite: 1]</a>
+                    </div>
+                    <p style="margin-bottom:0;">Authored an institutional-grade pitch book on India's semiconductor ecosystem covering 4 listed players (Tata Elxsi, ASM Technologies, Hind Rectifiers, RIR Power Electronics)[cite: 1]. Built a multi-model valuation framework combining DCF with dynamic WACC sensitivity, relative valuation (P/E, EV/EBITDA), DuPont analysis, and Altman Z-score to deconstruct ROE drivers and risk profiles[cite: 1].</p>
+                </div>
+
+                <div class="pub-panel">
+                    <div class="pub-top">
+                        <div class="pub-title">Natco Pharma: 5-Year Longitudinal Model</div>
+                        <a href="#" class="pub-link" target="_blank">Access Research ↗[cite: 1]</a>
+                    </div>
+                    <p style="margin-bottom:0;">Conducted a 5-year longitudinal tracking and financial performance analysis of Natco Pharma through Q3-2026, covering earnings quality, pipeline developments, margin expansion, and macro regulatory compliance impacts[cite: 1].</p>
+                </div>
+
+                <div class="pub-panel">
+                    <div class="pub-top">
+                        <div class="pub-title">"Equity Insights" Analytics Platform</div>
+                        <a href="#" class="pub-link" target="_blank">Access Platform ↗[cite: 1]</a>
+                    </div>
+                    <p style="margin-bottom:0;">Founder and author of a dedicated platform publishing regular analytical commentary on Indian capital markets, covering corporate actions, macroeconomic developments, and geopolitical impacts on listed equities[cite: 1].</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- CREDENTIALS / EDUCATION -->
+    <div id="education" class="page-panel">
+        <div class="panel-content">
+            <h2>Academic Foundations & Mandates <span class="section-meta">Verification Matrix</span></h2>
+            <div class="edu-matrix">
+                
+                <div class="edu-node">
+                    <h3>MBA — Finance & Analytics</h3>
+                    <div class="edu-inst">VIT University, Chennai[cite: 1]</div>
+                    <div class="edu-score-row">
+                        <span>CGPA: 8.13 / 10.0[cite: 1]</span>
+                        <span>Class of 2026[cite: 1]</span>
+                    </div>
+                </div>
+
+                <div class="edu-node">
+                    <h3>BBA — Financial Planning</h3>
+                    <div class="edu-inst">MGR University, Chennai[cite: 1]</div>
+                    <div class="edu-score-row">
+                        <span>CGPA: 8.86 / 10.0[cite: 1]</span>
+                        <span>Class of 2024[cite: 1]</span>
+                    </div>
+                </div>
+
+                <div class="edu-node" style="border-top-color: var(--accent-blue);">
+                    <h3>CFA® Program Candidate</h3>
+                    <div class="edu-inst">CFA Institute[cite: 1]</div>
+                    <div class="edu-score-row">
+                        <span>Level 1 Target[cite: 1]</span>
+                        <span>Exam Window: Feb 2027[cite: 1]</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Script to actively sync section transitions -->
+    <script>
+        const sections = document.querySelectorAll('.page-panel');
+        const navLinks = document.querySelectorAll('.nav-links a:not(.cta-contact)');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href').slice(1) === current) {
+                    a.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
